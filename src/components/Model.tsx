@@ -38,10 +38,13 @@ const Model = () => {
   /* Load model */
   useEffect(() => {
     const loader = new GLTFLoader();
-    loader.load("scene.gltf", async (gltf) => {
+    loader.load(" dommy.glb", async (gltf) => {
       const nodes = await gltf.parser.getDependencies("node");
       const animations = await gltf.parser.getDependencies("animation");
-      setModel(nodes[0]);
+      gltf.scene.scale.set(100, 100, 100);
+      console.log(gltf.scene);
+      setModel(gltf.scene);
+
       setAnimation(animations);
     });
   }, []);
@@ -60,15 +63,15 @@ const Model = () => {
   /* Animation update */
   useFrame((_, delta) => mixer.update(delta));
   /* Rotation */
-  useFrame(() => {
-    if (typeof group.current != "undefined")
-      return (group.current.rotation.y += 0.01);
-  });
+  // useFrame(() => {
+  //   if (typeof group.current != "undefined")
+  //     return (group.current.rotation.y += 0.01);
+  // });
 
   return (
     <>
       {model ? (
-        <group ref={group} position={[0, -150, 0]} dispose={null}>
+        <group ref={group} position={[0, -50, 0]} dispose={null}>
           <primitive ref={group} name="Object_0" object={model} />
         </group>
       ) : (
