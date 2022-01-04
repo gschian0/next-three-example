@@ -71,7 +71,7 @@ const Model = () => {
   return (
     <>
       {model ? (
-        <group ref={group} position={[0, -50, 0]} dispose={null}>
+        <group ref={group} position={[0, -60, 0]} dispose={null}>
           <primitive ref={group} name="Object_0" object={model} />
         </group>
       ) : (

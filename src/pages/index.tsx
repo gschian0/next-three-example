@@ -3,6 +3,7 @@ import { useRef, useMemo, useState, useCallback } from "react";
 import { Canvas, extend, useThree, useFrame } from "react-three-fiber";
 import Lights from "@/components/Light";
 import Model from "@/components/Model";
+import Logo from "@/components/Logo";
 import Sphere from "@/components/NormalSpnere";
 import Plane from "@/components/Plane";
 import * as THREE from "three";
@@ -28,16 +29,17 @@ const App = () => {
   return (
     <>
       <Canvas
-        camera={{ position: [0, 0, 100] }}
+        camera={{ position: [0, 10, 100] }}
         onCreated={({ gl }) => {
           gl.outputEncoding = THREE.LinearEncoding;
-          gl.setPixelRatio(2);
+          gl.setPixelRatio(Math.min(window.devicePixelRatio, 2));
           gl.toneMapping = THREE.CineonToneMapping;
         }}
       >
         <color attach="background" args={[0, 1, 1]} />
         <CameraControls />
         <Lights />
+        <Logo />
         <Model />
         {/* <Sphere/> */}
         <Plane />
