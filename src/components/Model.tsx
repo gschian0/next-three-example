@@ -39,7 +39,7 @@ const Model = () => {
   useEffect(() => {
     const loader = new GLTFLoader();
     loader.load(" dommy.glb", async (gltf) => {
-      const nodes = await gltf.parser.getDependencies("node");
+      // const nodes = await gltf.parser.getDependencies("node");
       const animations = await gltf.parser.getDependencies("animation");
       gltf.scene.scale.set(100, 100, 100);
       console.log(gltf.scene);

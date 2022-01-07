@@ -1,12 +1,12 @@
 import React from "react";
-import { useRef, useMemo, useState, useCallback } from "react";
-import { useThree, useFrame, extend } from "react-three-fiber";
+// import { useRef, useMemo, useState, useCallback } from "react";
+// import { useThree, useFrame, extend } from "react-three-fiber";
 import * as THREE from "three";
-import { BackSide, DoubleSide, FrontSide } from "three";
+import { DoubleSide } from "three";
 
 function AddGround() {
-  const [active, set] = useState(false);
-  const handleClick = useCallback((e) => set((state) => !state), []);
+  // const [active, set] = useState(false);
+  // const handleClick = useCallback((e) => set((state) => !state), []);
   const textureLoader = new THREE.TextureLoader();
   const dom_house = textureLoader.load("dom_house.jpg");
   return (
@@ -23,16 +23,16 @@ function AddGround() {
   );
 }
 
-function AddPlane() {
-  const [active, set] = useState(false);
-  const handleClick = useCallback((e) => set((state) => !state), []);
-  return (
-    <mesh position={[0, 0, 0]} rotation={[0, 0, 0]} scale={[200, 200, 200]}>
-      <boxBufferGeometry attach="geometry" args={[3, 3, 3]} />
-      <meshNormalMaterial attach="material" side={BackSide} />
-    </mesh>
-  );
-}
+// function AddPlane() {
+//   const [active, set] = useState(false);
+//   const handleClick = useCallback((e) => set((state) => !state), []);
+//   return (
+//     <mesh position={[0, 0, 0]} rotation={[0, 0, 0]} scale={[200, 200, 200]}>
+//       <boxBufferGeometry attach="geometry" args={[3, 3, 3]} />
+//       <meshNormalMaterial attach="material" side={BackSide} />
+//     </mesh>
+//   );
+// }
 
 const Plane = () => {
   return (

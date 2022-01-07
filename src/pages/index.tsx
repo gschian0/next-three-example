@@ -1,5 +1,5 @@
 import React from "react";
-import { useRef, useMemo, useState, useCallback } from "react";
+import { useRef } from "react";
 import { Canvas, extend, useThree, useFrame } from "react-three-fiber";
 import Lights from "@/components/Light";
 import Model from "@/components/Model";

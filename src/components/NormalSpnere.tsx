@@ -1,12 +1,12 @@
 import React from "react";
-import { useRef, useMemo, useState, useCallback } from "react";
-import { useThree, useFrame, extend } from "react-three-fiber";
-import * as THREE from "three";
+import { useState } from "react";
+// import { useThree, useFrame, extend } from "react-three-fiber";
+// import * as THREE from "three";
 import { BackSide } from "three";
 
 function Icosahedron() {
   const [active, set] = useState(false);
-  const handleClick = useCallback((e) => set((state) => !state), []);
+  // const handleClick = useCallback((e) => set((state) => !state), []);
   return (
     <mesh
       position={[0, 0, -10]}
