@@ -3,6 +3,7 @@ import * as THREE from "three";
 import { Html } from "drei";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { Object3D } from "three/src/core/Object3D"; //Object3D types
+import { SpriteMaterial } from "three";
 
 interface group {
   current: {
@@ -32,7 +33,8 @@ const Logo = () => {
     []
   );
   /* State */
-  const [model, setModel] = useState<Object3D | null>(null);
+  const [model, setModel] = useState<THREE.Group | null>(null);
+
   // const [animation, setAnimation] = useState<AnimationClip[] | null>(null);
 
   /* Mixer */
@@ -44,11 +46,13 @@ const Logo = () => {
     loader.load(" dolla_text3.gltf", async (gltf) => {
       // const nodes = await gltf.parser.getDependencies("node");
       // const animations = await gltf.parser.getDependencies("animation");
-      gltf.scene.scale.set(50, 50, 50);
 
-      gltf.scene.children[2].material = new THREE.MeshNormalMaterial();
+      let model = gltf.scene;
+      model.scale.set(50, 50, 50);
 
-      setModel(gltf.scene);
+      model.children[2].material = new THREE.MeshNormalMaterial();
+
+      setModel(model);
 
       // setAnimation(animations);
     });
