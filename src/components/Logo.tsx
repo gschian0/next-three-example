@@ -25,10 +25,10 @@ const Logo = () => {
   /* Refs */
   const group: group = useRef();
   // const actions: actions = useRef();
-  const [active, set] = useState(true);
+  // const [active, set] = useState(true);
   // const handleOver = useCallback((e) => set((state) => !state), []);
   const handleClick = useCallback(
-    (e) => window.open("http://www.deedotinc.com/", "_blank"),
+    () => window.open("http://www.deedotinc.com/", "_blank"),
     []
   );
   /* State */
