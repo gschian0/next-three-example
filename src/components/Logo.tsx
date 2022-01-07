@@ -26,7 +26,7 @@ const Logo = () => {
   const group: group = useRef();
   // const actions: actions = useRef();
   const [active, set] = useState(true);
-  const handleOver = useCallback((e) => set((state) => !state), []);
+  // const handleOver = useCallback((e) => set((state) => !state), []);
   const handleClick = useCallback(
     (e) => window.open("http://www.deedotinc.com/", "_blank"),
     []
@@ -45,6 +45,7 @@ const Logo = () => {
       // const nodes = await gltf.parser.getDependencies("node");
       // const animations = await gltf.parser.getDependencies("animation");
       gltf.scene.scale.set(50, 50, 50);
+
       gltf.scene.children[2].material = new THREE.MeshNormalMaterial();
 
       setModel(gltf.scene);
