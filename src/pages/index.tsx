@@ -25,17 +25,17 @@ const CameraControls = () => {
   return <orbitControls ref={controls} args={[camera, domElement]} />;
 };
 
-const MakeModel = () => {
-  return (
-    <>
-      <Model />
-    </>
-  );
-};
+// const MakeModel = () => {
+//   return (
+//     <>
+//       <Model />
+//     </>
+//   );
+// };
 
-const handleClick = () => {
-  window.open("http://www.deedotinc.com/", "_blank");
-};
+// const handleClick = () => {
+//   window.open("http://www.deedotinc.com/", "_blank");
+// };
 
 const App = () => {
   return (

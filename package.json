@@ -11,7 +11,8 @@
     "watch": "tsc -watch",
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "export": "npm run build && next export -o _static"
   },
   "dependencies": {
     "babel-plugin-glsl": "^1.0.0",
