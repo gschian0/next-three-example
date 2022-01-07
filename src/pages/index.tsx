@@ -25,11 +25,25 @@ const CameraControls = () => {
   return <orbitControls ref={controls} args={[camera, domElement]} />;
 };
 
+const MakeModel = () => {
+  return (
+    <>
+      <Model />
+    </>
+  );
+};
+
+const handleClick = () => {
+  window.open("http://www.deedotinc.com/", "_blank");
+};
+
 const App = () => {
   return (
     <>
       <Canvas
         camera={{ position: [0, 10, 100] }}
+        colorManagement={true}
+        resize={{ scroll: true }}
         onCreated={({ gl }) => {
           gl.outputEncoding = THREE.LinearEncoding;
           gl.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -41,7 +55,7 @@ const App = () => {
         <Lights />
         <Logo />
         <Model />
-        {/* <Sphere/> */}
+        <Sphere />
         <Plane />
       </Canvas>
     </>

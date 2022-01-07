@@ -7,15 +7,18 @@ import { BackSide, DoubleSide, FrontSide } from "three";
 function AddGround() {
   const [active, set] = useState(false);
   const handleClick = useCallback((e) => set((state) => !state), []);
+  const textureLoader = new THREE.TextureLoader();
+  const dom_house = textureLoader.load("dom_house.jpg");
   return (
     <mesh
-      position={[0, 0, -10]}
-      rotation={[Math.PI * 0.5, 0, Math.PI * 0.5]}
-      scale={active ? [200, 200, 200] : [100, 100, 100]}
-      onClick={handleClick}
+      position={[0, 0, -30]}
+      // rotation={[Math.PI * 0.5, 0, Math.PI * 0.5]}
+      // scale={active ? [20,20,20] : [21,21,21]}
+      scale={[20, 20, 20]}
+      // onClick={handleClick}
     >
       <planeBufferGeometry attach="geometry" args={[10, 10]} />
-      <meshNormalMaterial attach="material" side={DoubleSide} />
+      <meshBasicMaterial attach="material" side={DoubleSide} map={dom_house} />
     </mesh>
   );
 }
@@ -25,8 +28,8 @@ function AddPlane() {
   const handleClick = useCallback((e) => set((state) => !state), []);
   return (
     <mesh position={[0, 0, 0]} rotation={[0, 0, 0]} scale={[200, 200, 200]}>
-      <boxBufferGeometry attach="geometry" args={[2, 2, 2]} />
-      <meshNormalMaterial attach="material" side={DoubleSide} />
+      <boxBufferGeometry attach="geometry" args={[3, 3, 3]} />
+      <meshNormalMaterial attach="material" side={BackSide} />
     </mesh>
   );
 }
@@ -34,8 +37,8 @@ function AddPlane() {
 const Plane = () => {
   return (
     <>
-      {/* <AddGround/> */}
-      <AddPlane />
+      <AddGround />
+      {/* <AddPlane /> */}
     </>
   );
 };

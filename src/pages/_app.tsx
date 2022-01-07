@@ -5,7 +5,7 @@ function App({ Component, pageProps }: any) {
   return (
     <>
       <Head>
-        <title>Three in Next</title>
+        <title>Dee-Dot_Dolla</title>
       </Head>
       <Component {...pageProps} />
     </>

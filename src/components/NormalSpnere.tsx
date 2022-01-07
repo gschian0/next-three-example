@@ -10,10 +10,10 @@ function Icosahedron() {
   return (
     <mesh
       position={[0, 0, -10]}
-      scale={active ? [200, 200, 200] : [100, 100, 100]}
-      onClick={handleClick}
+      scale={[500, 500, 500]}
+      // onClick={handleClick}
     >
-      <sphereBufferGeometry attach="geometry" args={[1, 1, 1]} />
+      <sphereBufferGeometry attach="geometry" args={[1, 24, 1, 24]} />
       <meshNormalMaterial attach="material" side={BackSide} />
     </mesh>
   );

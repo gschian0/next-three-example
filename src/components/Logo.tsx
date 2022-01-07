@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import { useFrame } from "react-three-fiber";
 import * as THREE from "three";
 import { Html } from "drei";
@@ -27,7 +27,12 @@ const Logo = () => {
   /* Refs */
   const group: group = useRef();
   // const actions: actions = useRef();
-
+  const [active, set] = useState(true);
+  const handleOver = useCallback((e) => set((state) => !state), []);
+  const handleClick = useCallback(
+    (e) => window.open("http://www.deedotinc.com/", "_blank"),
+    []
+  );
   /* State */
   const [model, setModel] = useState<Object3D | null>(null);
   // const [animation, setAnimation] = useState<AnimationClip[] | null>(null);
@@ -73,8 +78,15 @@ const Logo = () => {
   return (
     <>
       {model ? (
-        <group ref={group} position={[0, -25, -150]} dispose={null}>
-          <primitive ref={group} name="Object_0" object={model} />
+        <group
+          ref={group}
+          position={[0, 5, -10]}
+          scale={active ? [0.2, 0.2, 0.2] : [0.3, 0.3, 0.3]}
+          // onPointerOver={handleOver}
+          onClick={handleClick}
+          dispose={null}
+        >
+          <primitive ref={group} name="Object_1" object={model} />
         </group>
       ) : (
         <Html>Loading...</Html>
