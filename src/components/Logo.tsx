@@ -1,10 +1,8 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
-import { useFrame } from "react-three-fiber";
 import * as THREE from "three";
 import { Html } from "drei";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { Object3D } from "three/src/core/Object3D"; //Object3D types
-import { AnimationClip } from "three/src/animation/AnimationClip"; //Animation types
 
 interface group {
   current: {
